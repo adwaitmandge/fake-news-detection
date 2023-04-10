@@ -34,7 +34,6 @@ const Home = () => {
         <FeaturesHome />
         <FeaturesBlocks />
         <Testimonials />
-        <Newsletter />
       </main>
 
       {/* <Banner /> */}

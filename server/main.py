@@ -64,6 +64,5 @@ def fact_check(text_peice):
 
 fact_check(get_summary("https://www.inquirer.com/opinion/commentary/republicans-tennessee-expulsion-anti-democracy-20230409.html"))
 
-
 if __name__ == "__main__":
     app.run(debug=True)

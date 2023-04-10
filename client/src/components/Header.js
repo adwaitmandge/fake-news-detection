@@ -65,7 +65,7 @@ function Header() {
                   onClick={!session ? signIn : signOut}
                   className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
                 >
-                  {!session ? "Sign In":"Sign Out"}
+                  {!session ? "Sign In" : "Sign Out"}
                 </span>
               </li>
               {/* <li>

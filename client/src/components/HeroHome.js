@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Modal from "../utils/Modal";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -54,7 +55,7 @@ function HeroHome() {
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
             <h1
-              className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
+              className="text-5xl md:text-6xl font-extr abold leading-tighter tracking-tighter mb-4"
               // data-aos="zoom-y-out"
             >
               News{" "}
@@ -77,12 +78,12 @@ function HeroHome() {
                 // data-aos-delay="300"
               >
                 <div>
-                  <a
+                  <Link
                     className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                    href="#0"
+                    href="/verify"
                   >
-                    Start free trial
-                  </a>
+                    Start Now
+                  </Link>
                 </div>
                 <div>
                   <a
