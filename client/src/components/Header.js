@@ -1,8 +1,10 @@
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 function Header() {
   const [top, setTop] = useState(true);
+  const { data: session } = useSession();
 
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
@@ -59,14 +61,14 @@ function Header() {
           <nav className="flex flex-grow">
             <ul className="flex flex-grow justify-end flex-wrap items-center">
               <li>
-                <Link
-                  href="/signin"
+                <span
+                  onClick={!session ? signIn : signOut}
                   className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
                 >
-                  Sign in
-                </Link>
+                  {!session ? "Sign In":"Sign Out"}
+                </span>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/signup"
                   className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
@@ -83,7 +85,7 @@ function Header() {
                     />
                   </svg>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
