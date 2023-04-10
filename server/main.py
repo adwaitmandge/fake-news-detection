@@ -1,11 +1,23 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_restful import Api, Resource, reqparse, marshal_with, fields
+from flask_cors import CORS, cross_origin
+import re
 
 app = Flask(__name__)
+app.config['CORS_HEADERS'] = 'application/json'
 app.app_context().push()
-
+# CORS(app, support_credentials=True)
 api = Api(app)
 
+cors = CORS(resources={
+    r'/*': {
+        'origins': [
+            'http://localhost:3000'
+        ]
+    }
+})
+
+cors.init_app(app)
 
 # -*- coding: utf-8 -*-
 """fake_news_gpt3_final.ipynb
@@ -24,45 +36,23 @@ Original file is located at
 # !pip install nltk 
 # !pip install newspaper3k 
 # !pip install openai
-
 import nltk
 from newspaper import Article 
 import openai
 import nltk
+from helpers import fact_check
 
 nltk.download('punkt')
 
-def get_summary(url):
-    article=Article(url)
-    article.download()
-    article.parse()
-    article.nlp()
-    article_summary=article.summary 
-    return article_summary 
-
-def gpt3(text):
-    openai.api_key='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'
-    response = openai.Completion.create(
-    model="text-davinci-003",
-    prompt=text,
-    temperature=0.7,
-    max_tokens=2000,
-    top_p=1.0,
-    frequency_penalty=0.0,
-    presence_penalty=1
-    )
-    content=response.choices[0].text
-    print(content)
-    return response.choices[0].text
-
-def fact_check(text_peice):
-    topic=text_peice
-    query1="check if this is fake news "+topic+" and cite if sources with links if it is and if it is not fake"
-    query2="fact check this statement with statistics and official goverment sources "+topic+"and also provide other sources with links"
-    gpt3(query1)
-    gpt3(query2)
-
-fact_check(get_summary("https://www.inquirer.com/opinion/commentary/republicans-tennessee-expulsion-anti-democracy-20230409.html"))
+# @cross_origin(supports_credentials=True)
+@app.route('/factcheck',methods=['POST'])
+def verifier():
+    print("Inside the verifier at the backend")
+    data = request.data
+    print("The request body is", data)
+    result = fact_check(data)
+    return jsonify({"result":result}) 
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
