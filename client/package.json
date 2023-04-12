@@ -30,6 +30,7 @@
     "react-dom": "18.2.0",
     "react-flatpickr": "^3.10.13",
     "react-transition-group": "^4.4.5",
+    "social-media-sharing": "^1.0.2",
     "sticky-js": "^1.3.0"
   },
   "devDependencies": {
