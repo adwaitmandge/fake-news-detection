@@ -22,11 +22,6 @@ const userSchema = new mongoose.Schema(
             type: String,
           },
         ],
-        categories: [
-          {
-            type: String,
-          },
-        ],
       },
     ],
     pic: {

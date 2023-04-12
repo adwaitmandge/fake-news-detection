@@ -14,7 +14,7 @@ def get_summary(url):
     return article_summary 
 
 def gpt3(text):
-    openai.api_key='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'
+    openai.api_key='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'
     response = openai.Completion.create(
     model="text-davinci-003",
     prompt=text,
@@ -30,6 +30,11 @@ def gpt3(text):
 
 def fact_check(text_peice):
     topic=text_peice
-    query1=f"check if this is fake news {topic} and cite if sources with links if it is and if it is not fake"
-    query2=f"fact check this statement with statistics and official goverment sources {topic} and also provide other sources with links"
-    return gpt3(query1), gpt3(query2)
+    query1=f"check if this is fake news {topic}"
+    query2=f"cite if sources with links if it is and if it is not fake and also fact check this statement with statistics and official goverment sources {topic}"
+    query3 = "Also provide the links of other sources"
+    response1 = gpt3(query1)
+    response2 = gpt3(query2)
+    response3 = gpt3(query3)
+    
+    return response1, response2, response3 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
-import HeroHome from "../../components/HeroHome";
-import FeaturesHome from "../../components/Features";
-import FeaturesBlocks from "../../components/FeaturesBlocks";
-import Testimonials from "../../components/Testimonials";
-import Newsletter from "../../components/Newsletter";
-import Footer from "../../components/Footer";
-import Banner from "../../components/Banner";
+import Header from "../../../components/Header";
+import HeroHome from "../../../components/HeroHome";
+import FeaturesHome from "../../../components/Features";
+import FeaturesBlocks from "../../../components/FeaturesBlocks";
+import Testimonials from "../../../components/Testimonials";
+import Newsletter from "../../../components/Newsletter";
+import Footer from "../../../components/Footer";
+import Banner from "../../../components/Banner";
 
 const Home = () => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -33,16 +33,22 @@ const Home = () => {
                   Viewed Tweets
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Seconds Watched
+                  Political View
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Propaganda Technique
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Type of News
                 </th>
                 <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
                   Keywords
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Category
+                  Sentiments
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Sentiments
+                  Type of Speech
                 </th>
                 <th scope="col" class="px-6 py-3">
                   D/R

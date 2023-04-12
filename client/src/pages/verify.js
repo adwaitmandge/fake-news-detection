@@ -21,6 +21,7 @@ const Query = () => {
   const [userInput, setUserInput] = useState("");
   const [response1, setResponse1] = useState();
   const [response2, setResponse2] = useState();
+  const [response3, setResponse3] = useState();
   const [loading, setLoading] = useState(false);
 
   const [tab, setTab] = useState(1);
@@ -66,9 +67,11 @@ const Query = () => {
       console.log("Printing the object");
       console.log(data.result[0]);
       console.log(data.result[1]);
+      console.log(data.result[2]);
 
       setResponse1(data.result[0]);
       setResponse2(data.result[1]);
+      setResponse3(data.result[2]);
     } catch (err) {
       console.error(err.message);
     }
@@ -283,6 +286,7 @@ const Query = () => {
                     <Paper elevation={3} className="">
                       <div className="p-10 text-2xl ">{response1}</div>
                       <div className="p-10 text-2xl ">{response2}</div>
+                      <div className="p-10 text-2xl ">{response3}</div>
                     </Paper>
                   </Box>
                 }
